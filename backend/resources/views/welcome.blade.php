@@ -29,14 +29,14 @@
         @csrf
         <div class="form-group">
             <label>Original link (required)</label>
-            <input class="form-control" name="original_link"/>
+            <input class="form-control" name="original_link" value="{{ old('original_link') }}"/>
             @error('original_link')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
         <div class="form-group pt-2">
             <label>Short link (optional)</label>
-            <input class="form-control" name="short_link"/>
+            <input class="form-control" name="short_link" value="{{ old('short_link') }}"/>
             <div class="form-text">Enter your link without domain, e.g. <i>myuserslist</i></div>
             @error('short_link')
             <div class="alert alert-danger">{{ $message }}</div>

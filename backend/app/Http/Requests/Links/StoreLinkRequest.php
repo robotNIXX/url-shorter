@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Links;
 
+use App\Rules\ExternalUrlValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreLinkRequest extends FormRequest {
@@ -10,9 +11,15 @@ class StoreLinkRequest extends FormRequest {
     }
 
     public function rules() {
+
         return [
-            'original_link' => 'required|url',
-            'short_link' => 'required_without:generate_by_service|unique:links,short_link'
+            'original_link' => [ 'required', 'url', new ExternalUrlValidationRule() ],
+            'short_link'    => [
+                'required_without:generate_by_service',
+                'nullable',
+                'unique:links,short_link',
+                'regex:/[[:alnum:]]{5,}/i'
+            ]
         ];
     }
 }
