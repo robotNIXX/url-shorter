@@ -25,6 +25,16 @@
 <body>
 <div class="container mt-5">
     <h1>Url shorter form</h1>
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
     <form action="{{ route('create-url') }}" method="post">
         @csrf
         <div class="form-group">

@@ -15,5 +15,20 @@ class LinksController extends Controller {
         }
 
         ULink::create($data);
+
+        return redirect('/')->with('status', 'Link was created');
+    }
+
+    public function redirectExport(string $link) {
+        try {
+            $link = ULink::where('short_link', $link)->firstOrFail();
+            $link->ucount = $link->ucount + 1;
+            $link->save();
+
+            return redirect($link->original_link);
+        } catch (\Throwable $throwable) {
+
+            return redirect('/')->with('error', 'Link was not found');
+        }
     }
 }

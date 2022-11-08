@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::post('/create-url', [LinksController::class, 'store'])->name('create-url');
+Route::get('/{link}', [LinksController::class, 'redirectExport']);
