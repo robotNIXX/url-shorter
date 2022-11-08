@@ -11,7 +11,6 @@ class StoreLinkRequest extends FormRequest {
     }
 
     public function rules() {
-
         return [
             'original_link' => [ 'required', 'url', new ExternalUrlValidationRule() ],
             'short_link'    => [
