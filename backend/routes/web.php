@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BaseController;
 use App\Http\Controllers\LinksController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [BaseController::class, 'index']);
 
 Route::post('/create-url', [LinksController::class, 'store'])->name('create-url');
-Route::get('/{link}', [LinksController::class, 'redirectExport']);
+Route::get('/{link}', [LinksController::class, 'redirectExport'])->where('link', '[[:alnum:]]+');
