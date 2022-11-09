@@ -16,3 +16,10 @@ Append to this file next line
 
     cd /docker  
     docker-compose exec php composer install
+
+## Set environment
+
+rename .env.example to .env and set environment variables
+
+    cd /docker
+    docker-compose exec php php artisan migrate
