@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/create-url', [ApiLinksController::class, 'store'])->name('api-create-url');
+Route::post('links')->uses([ApiLinksController::class, 'save']);

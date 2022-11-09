@@ -38,7 +38,6 @@ class LinksController extends Controller {
 
             return redirect($link->original_link);
         } catch (\Throwable $throwable) {
-
             return redirect('/')->with('error', 'Link was not found');
         }
     }

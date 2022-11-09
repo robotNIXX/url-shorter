@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Links\StoreLinkRequest;
 use App\Models\ULink;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class ApiLinksController extends Controller {
 
@@ -13,7 +14,7 @@ class ApiLinksController extends Controller {
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store( StoreLinkRequest $request ) {
+    public function save( StoreLinkRequest $request ): JsonResponse {
         $data = [
             'original_link' => $request->original_link
         ];

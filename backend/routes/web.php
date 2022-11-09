@@ -18,4 +18,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [BaseController::class, 'index']);
 
 Route::post('/create-url', [LinksController::class, 'store'])->name('create-url');
-Route::get('/{link}', [LinksController::class, 'redirectExport'])->where('link', '^(?!api)');
+Route::get('/{path}', [LinksController::class, 'redirectExport'])->where('path', '^(?!api).*$');
