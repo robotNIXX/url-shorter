@@ -5,9 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Links\StoreLinkRequest;
 use App\Models\ULink;
-use Symfony\Component\HttpFoundation\JsonResponse;
 
-class ApiLinksController extends Controller {
+class ExternalController extends Controller {
 
     /**
      * @param StoreLinkRequest $request

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\API\ApiLinksController;
+use App\Http\Controllers\API\ExternalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('links')->uses([ApiLinksController::class, 'save']);
+Route::controller(ExternalController::class)->group(function () {
+    Route::post( 'links', 'save');
+});
+
