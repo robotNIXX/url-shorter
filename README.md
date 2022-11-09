@@ -12,12 +12,12 @@ Append to this file next line
     127.0.0.1 ushorter.loc
 
 
-## Install dependencies
+### Install dependencies
 
     cd /docker  
     docker-compose exec php composer install
 
-## Set environment
+### Set environment
 
 rename .env.example to .env and set environment variables
 
